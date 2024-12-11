@@ -1,8 +1,9 @@
 import React, { useReducer } from "react";
 import FormAnimal from "./Animaux/FormAnimal";
 import TableauAnimaux from "./Animaux/TableauAnimaux";
-import { reducer, initialState } from "./reducer"; // Import du reducer et de son état initial
+import { reducer, initialState } from "./reducer";
 import "./App.scss";
+import App1 from "./CarnetAdresse/App1";
 
 const App = () => {
   const [animaux, dispatch] = useReducer(reducer, initialState);
@@ -31,6 +32,7 @@ const App = () => {
         supprimerAnimal={supprimerAnimal}
         modifierAnimal={modifierAnimal}
       />
+      <App1 />
     </div>
   );
 };
