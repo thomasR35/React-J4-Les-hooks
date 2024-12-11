@@ -1,0 +1,53 @@
+.tableau-animaux {
+  table-layout: fixed;
+  width: 100%;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+.tableau-animaux th,
+.tableau-animaux td {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  color: #333;
+}
+.tableau-animaux th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+.tableau-animaux .edit-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.tableau-animaux tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+.tableau-animaux tr:nth-child(odd) {
+  background-color: #709ca7;
+  color: #ffffff;
+}
+.tableau-animaux tr:hover {
+  background-color: #e1eef0;
+  color: #333;
+}
+.tableau-animaux tr button {
+  margin: 2px;
+  padding: 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  border: 1px solid black;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+.tableau-animaux tr button:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+.tableau-animaux tr button.delete:hover {
+  background-color: #e74c3c;
+}/*# sourceMappingURL=.TableauA.css.map */

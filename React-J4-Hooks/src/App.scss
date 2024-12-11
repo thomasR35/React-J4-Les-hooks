@@ -1,13 +1,15 @@
 @import "./Animaux/.formA.scss";
 @import "./Animaux/.tableauA.scss";
 @import "./CarnetAdresse/.App1.scss";
+
 $background-color: #344d59;
 $text-color: #b8cbd0;
+
 body {
   margin: 0 auto;
   padding: 0;
   font-family: sans-serif;
-  background-color: $background-color;
+  background-color: #344d59;
 }
 .app-container {
   text-align: center;

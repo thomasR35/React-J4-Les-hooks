@@ -33,7 +33,7 @@ const App1 = () => {
   }, [contacts]);
 
   return (
-    <div className="app-container1 container">
+    <div className="app-container container">
       <h1 className="text-center my-4">Carnet d'Adresses</h1>
       <AddContactForm dispatch={dispatch} />
       <ContactTable contacts={contacts} dispatch={dispatch} />
