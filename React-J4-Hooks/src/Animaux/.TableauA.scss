@@ -8,32 +8,34 @@ $text-color: #333;
 $table-border-radius: 8px;
 
 .tableau-animaux {
-  margin-top: 3rem;
+  table-layout: fixed; // Fixe la largeur des colonnes
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  border: 1px solid $border-color;
-  border-radius: $table-border-radius;
-  overflow: hidden;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 
   th,
   td {
-    border: none;
-    padding: 12px;
     text-align: center;
-    font-size: 14px;
-    font-family: "Arial", sans-serif;
+    padding: 10px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    color: $text-color; // Empêche le débordement du contenu
   }
 
   th {
-    background-color: $table-header-bg;
-    color: $text-color;
+    background-color: #f4f4f4;
     font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 0.05rem;
-    font-size: 13px;
   }
 
+  // Les champs d'édition prennent toute la largeur de la cellule
+  .edit-input {
+    width: 100%; // S'assure que les inputs remplissent la cellule
+    box-sizing: border-box; // Inclut le padding dans la largeur totale
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
   tr {
     &:nth-child(even) {
       background-color: $table-row-even-bg;
@@ -48,9 +50,23 @@ $table-border-radius: 8px;
       background-color: $table-hover-bg;
       color: $text-color;
     }
-  }
+    button {
+      margin: 2px;
+      padding: 5px 10px;
+      font-size: 12px;
+      cursor: pointer;
+      border: 1px solid black;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
 
-  td {
-    transition: background-color 0.3s ease, color 0.3s ease;
+      &:hover {
+        background-color: #007bff;
+        color: #fff;
+      }
+
+      &.delete:hover {
+        background-color: #e74c3c;
+      }
+    }
   }
 }

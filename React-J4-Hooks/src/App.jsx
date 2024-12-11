@@ -1,30 +1,36 @@
-import React, { useState } from "react";
+import React, { useReducer } from "react";
 import FormAnimal from "./Animaux/FormAnimal";
 import TableauAnimaux from "./Animaux/TableauAnimaux";
+import { reducer, initialState } from "./reducer"; // Import du reducer et de son état initial
 import "./App.scss";
 
 const App = () => {
-  const [animaux, setAnimaux] = useState([
-    { famille: "Canidés", espece: "Chiwawa", age: 1, prenom: "Nougat" },
-    { famille: "Canidés", espece: "Boxer", age: 8, prenom: "Peggy" },
-    { famille: "Félidés", espece: "Lion", age: 2, prenom: "Léo" },
-    {
-      famille: "Canidés",
-      espece: "Berger Australien",
-      age: 10,
-      prenom: "Félix",
-    },
-  ]);
+  const [animaux, dispatch] = useReducer(reducer, initialState);
 
+  // Fonction pour ajouter un animal
   const ajouterAnimal = (nouvelAnimal) => {
-    setAnimaux([...animaux, nouvelAnimal]);
+    dispatch({ type: "AJOUTER_ANIMAL", payload: nouvelAnimal });
+  };
+
+  // Fonction pour supprimer un animal
+  const supprimerAnimal = (index) => {
+    dispatch({ type: "SUPPRIMER_ANIMAL", payload: index });
+  };
+
+  // Fonction pour modifier un animal
+  const modifierAnimal = (index, updatedAnimal) => {
+    dispatch({ type: "MODIFIER_ANIMAL", payload: { index, updatedAnimal } });
   };
 
   return (
     <div className="app-container">
       <h1>Gestion des Animaux</h1>
       <FormAnimal ajouterAnimal={ajouterAnimal} />
-      <TableauAnimaux animaux={animaux} />
+      <TableauAnimaux
+        animaux={animaux}
+        supprimerAnimal={supprimerAnimal}
+        modifierAnimal={modifierAnimal}
+      />
     </div>
   );
 };
